@@ -6,19 +6,24 @@ function App() {
   const [showAddTask, setShowAddTask] = useState(false)
   const [tasks, setTasks] = useState([])
   useEffect(() => {
+    const getTasks = async () => {
+      const tasksFromServer = await fetchTasks()
+      setTasks(tasksFromServer)
+    }
+  getTasks()
+  }, [])
+
   const fetchTasks = async() => {
     const response = await fetch('http://localhost:5000/tasks')
     const data = await response.json()
-    console.log(data)
+    return data;
   }
-  fetchTasks()
-  }, [])
 
-const addTask = (task) => {
-  const id = Math.floor(Math.random() * 10000) + 1
-  const newTask = {id, ...task}
-  setTasks([...tasks, newTask])
-}
+  const addTask = (task) => {
+    const id = Math.floor(Math.random() * 10000) + 1
+    const newTask = {id, ...task}
+    setTasks([...tasks, newTask])
+  }
 
 const showAddTaskForm = () => {
   setShowAddTask(!showAddTask)
