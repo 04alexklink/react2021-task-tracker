@@ -3,6 +3,7 @@ import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
 import { useState } from 'react';
 function App() {
+  const [showForm, setShowForm] = useState(false)
   const [tasks, setTasks] = useState([
     {
       id:1,
@@ -31,6 +32,10 @@ const addTask = (task) => {
   setTasks([...tasks, newTask])
 }
 
+const showAddForm = () => {
+  setShowForm(!showForm)
+}
+
 const deleteTask = (id) => {
   setTasks(tasks.filter((task) => {
     if(task.id !== id) {
@@ -46,8 +51,8 @@ const toggleReminder = (id) => {
 
   return (
     <div className="container">
-      <Header title="Task Tracker"/>
-      <AddTask onAddTask={addTask}/>
+      <Header title="Task Tracker" showAddForm={showAddForm}/>
+      {showForm ? <AddTask onAddTask={addTask}/> : ""}
       {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggleReminder={toggleReminder}/> : "No tasks to show"}
     </div>
   );
