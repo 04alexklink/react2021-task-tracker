@@ -19,15 +19,20 @@ function App() {
     return data;
   }
 
-  // const addTask = async (task) => {
-  //   await fetch('http://localhost:5000/tasks', {
-  //     method: 'POST',
-  //   })
-  //   // const id = Math.floor(Math.random() * 10000) + 1
-  //   // const newTask = {id, ...task}
-  //   const tasksFromServer = await fetchTasks()
-  //   setTasks(tasksFromServer)
-  // }
+  const addTask = async (task) => {
+    const res = await fetch('http://localhost:5000/tasks', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(task)
+    })
+    const data = await res.json()
+    setTasks([...tasks, data])
+    //Alternative way to update tasks list. Calling the method that gets all tasks from server
+    // const tasksFromServer = await fetchTasks()
+    // setTasks(tasksFromServer)
+  }
 
 const showAddTaskForm = () => {
   setShowAddTask(!showAddTask)
