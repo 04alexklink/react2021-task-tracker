@@ -19,17 +19,24 @@ function App() {
     return data;
   }
 
-  const addTask = (task) => {
-    const id = Math.floor(Math.random() * 10000) + 1
-    const newTask = {id, ...task}
-    setTasks([...tasks, newTask])
-  }
+  // const addTask = async (task) => {
+  //   await fetch('http://localhost:5000/tasks', {
+  //     method: 'POST',
+  //   })
+  //   // const id = Math.floor(Math.random() * 10000) + 1
+  //   // const newTask = {id, ...task}
+  //   const tasksFromServer = await fetchTasks()
+  //   setTasks(tasksFromServer)
+  // }
 
 const showAddTaskForm = () => {
   setShowAddTask(!showAddTask)
 }
 
-const deleteTask = (id) => {
+const deleteTask = async (id) => {
+  await fetch(`http://localhost:5000/tasks/${id}`, {
+    method: 'DELETE',
+  })
   setTasks(tasks.filter((task) => {
     if(task.id !== id) {
       return task
