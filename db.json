@@ -5,6 +5,18 @@
       "day": "",
       "reminder": false,
       "id": 1
+    },
+    {
+      "text": "Get a job",
+      "day": "",
+      "reminder": true,
+      "id": 2
+    },
+    {
+      "text": "Do the laundry",
+      "day": "Wednesday",
+      "reminder": false,
+      "id": 3
     }
   ]
 }
