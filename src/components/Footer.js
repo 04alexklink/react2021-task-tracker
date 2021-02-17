@@ -1,9 +1,9 @@
-import Button from './Button'
+import { Link } from 'react-router-dom'
  const Footer = () => {
 
   return (
       <footer className="footer">
-          <a href='/about'>About</a>
+          <Link to='/about'>About</Link>
       </footer>
   )
 }
