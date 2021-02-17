@@ -1,4 +1,7 @@
 # Getting Started with Create React App
+Notes:
+To  use this app, need to run JSON server npm run server at localhost:5000. 
+This way when run app with npm run start, it can make the API calls to the db.json file and the app actually works. So 2 servers in action. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
