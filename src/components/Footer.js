@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation} from 'react-router-dom'
  const Footer = () => {
-
+   const location = useLocation()
   return (
       <footer className="footer">
-          <Link to='/about'>About</Link>
+          {location.pathname === '/about'? '' :<Link to='/about'>About</Link>}
       </footer>
   )
 }
