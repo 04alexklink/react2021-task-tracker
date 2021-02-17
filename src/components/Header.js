@@ -6,7 +6,7 @@ const Header = ({title, showAddTaskForm, showAddTaskValue}) => {
   return (
     <header className='header'>
       <h1> {title}</h1>
-      {location.pathname === '/about' ? '' : <Button color= {showAddTaskValue ? 'red' : 'green'} text = {showAddTaskValue ? 'Close' : 'Add'} onClick={showAddTaskForm} />}
+      {location.pathname === '/' && <Button color= {showAddTaskValue ? 'red' : 'green'} text = {showAddTaskValue ? 'Close' : 'Add'} onClick={showAddTaskForm} />}
     </header>
   )
 }

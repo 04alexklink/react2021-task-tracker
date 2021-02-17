@@ -3,7 +3,7 @@ import { Link, useLocation} from 'react-router-dom'
    const location = useLocation()
   return (
       <footer className="footer">
-          {location.pathname === '/about'? '' :<Link to='/about'>About</Link>}
+          {location.pathname === '/' && <Link to='/about'>About</Link>}
       </footer>
   )
 }
